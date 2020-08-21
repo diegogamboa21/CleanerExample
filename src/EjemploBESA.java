@@ -13,6 +13,7 @@ import World.Behavior.SubscribeGuard;
 import World.Behavior.UpdateGuard;
 import World.State.WorldState;
 import World.WorldAgent;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,13 +24,16 @@ public class EjemploBESA {
     public static int GAME_PERIODIC_TIME = 1000;
     public static int GAME_PERIODIC_DELAY_TIME = 100;
     
+    private static final Logger log = Logger.getLogger("EjemploBESA");
+    
     public static void main(String[] args) throws ExceptionBESA {
-        
-        
+      
+        log.info("Initilize project");
         AdmBESA admLocal = AdmBESA.getInstance();
         
         
-        WorldState ws = new WorldState(100, 100);
+        WorldState ws = new WorldState(10, 10);
+         log.info("ws: " + ws);
         StructBESA wrlStruct = new StructBESA();
         wrlStruct.addBehavior("WorldBehavior");
         wrlStruct.bindGuard("WorldBehavior", GameGuard.class);
@@ -38,8 +42,6 @@ public class EjemploBESA {
         wrlStruct.bindGuard("ChangeBehavior", UpdateGuard.class);
         WorldAgent wa = new WorldAgent("WORLD", ws, wrlStruct, 0.91);
         wa.start();
-        
-        
         
         CleanerState c1State = new CleanerState(11);
         StructBESA c1Struct = new StructBESA();

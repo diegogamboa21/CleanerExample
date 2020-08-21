@@ -17,7 +17,6 @@ public class WorldState extends StateBESA{
     public WorldState(int size, int numOfDust) {
         map = new Map(size, numOfDust);
         botsAlias = new ArrayList<>();
-        Map.openInJFrame(map, 618, 618);
     }
 
     public Map getMap() {
