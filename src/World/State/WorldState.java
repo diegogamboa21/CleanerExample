@@ -4,6 +4,8 @@ import BESA.Kernell.Agent.StateBESA;
 import Model.Map;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -11,6 +13,8 @@ import java.util.List;
  */
 public class WorldState extends StateBESA{
     
+    private static final Logger log = Logger.getLogger("EjemploBESA");
+
     private Map map;
     private List<String> botsAlias;
   
@@ -41,5 +45,7 @@ public class WorldState extends StateBESA{
 
     public void move(String alias, int x, int y) {
         map.move(alias,x,y);
+        String move = alias + " move to: " + x + ", " + y;
+        log.log(Level.INFO, move);
     }
 }
