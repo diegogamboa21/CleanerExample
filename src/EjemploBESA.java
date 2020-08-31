@@ -29,7 +29,7 @@ public class EjemploBESA {
         AdmBESA admLocal = AdmBESA.getInstance();
         
         
-        WorldState ws = new WorldState(100, 100);
+        WorldState ws = new WorldState(10, 10);
         StructBESA wrlStruct = new StructBESA();
         wrlStruct.addBehavior("WorldBehavior");
         wrlStruct.bindGuard("WorldBehavior", GameGuard.class);
